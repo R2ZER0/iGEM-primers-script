@@ -3,7 +3,7 @@
 # Each needs to be in front of arrows (>>>) which tell you where IDLE starts
 # then type (no quote marks) "primer('sequence goes here')". Press enter.
 # currently it doesn't put DR and UR on the same line as their prefixes and suffixes. Not sure why
- 
+
 
 
 def rc(sequence, n, b):
@@ -33,7 +33,7 @@ def rc(sequence, n, b):
 
 def primers(s):
     print 'UF is CTAgag' + s[0:37] #print first 37 bases with the prefix
-        print 'UR is (add ctc at end)' #reverses the first 34 bases of the primer
+    print 'UR is (add ctc at end)' #reverses the first 34 bases of the primer
     rc(s, 0, 35)
     if s[-37:-35] == 'tag' or 'cta':  #takes last 37 bases, checks first 3 for stops  
         print 'bad codon found'
