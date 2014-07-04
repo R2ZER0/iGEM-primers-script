@@ -3,7 +3,7 @@
 # Each needs to be in front of arrows (>>>) which tell you where IDLE starts
 # then type "primer('sequence goes here')". Press enter.
 # currently it doesn't put DR and UR on the same line as their prefixes and suffixes. Not sure why
-# To confirm the primers fit where they should, use ApE’s alignment tool
+# To confirm the primers fit where they should, use ApE's alignment tool
 
  
 
