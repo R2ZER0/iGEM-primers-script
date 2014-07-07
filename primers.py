@@ -1,9 +1,9 @@
 
 # How to use: copy and paste these two bits of text into a program called IDLE (search for it on the uni system)
 # Each needs to be in front of arrows (>>>) which tell you where IDLE starts
-# then type "primer('sequence goes here')". Press enter. (You must include the apostrophes or it won’t work. The sequence text should turn green)
+# then type "primer('sequence goes here')". Press enter. (You must include the apostrophes or it won't work. The sequence text should turn green)
 # currently it doesn't put DR and UR on the same line as their prefixes and suffixes. Not sure why
-# To confirm the primers fit where they should, use ApE’s or IDT’s alignment tool
+# To confirm the primers fit where they should, use ApE's or IDT's alignment tool
 # Additional point: coding genes need slight alterations to the prefixes and suffixes (promoters remain the same). For genes, add CTAg not CTAgag. UR adds c not ctc
  
 
@@ -80,4 +80,4 @@ def primers(s):
 
 
 #ALso cool would be to get it run batches of sequences, and, most helpfully, remove the whitespace from sequences copied and pasted from the registry, because that’s a hassle
-#-> for the latter, ApE can do it, but yeah that would be cool
+# -> for the latter, ApE can do it, but yeah that would be cool
