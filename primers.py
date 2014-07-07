@@ -49,12 +49,12 @@ def primers(s):
         return
     else:
         print 'UF is CTAgag' + s[0:37] #print first 37 bases with the prefix
-                print 'UR is (add ctc at end)' #reverses the first 34 bases of the primer
-                rc(s, 0, 34)
+        print 'UR is (add ctc at end)' #reverses the first 34 bases of the primer
+        rc(s, 0, 34)
     ## if s[-37:-35] == 'tag' or 'cta':
     ## ^ easy thing to be caught out on, this actually means:
-    ##   if (s[-37:-35] == ‘tag’) or (‘cta’):
-    ## ‘or’ works solely with boolean logic, and in python all non-empty strings
+    ##   if (s[-37:-35] == 'tag') or ('cta'):
+    ## 'or' works solely with boolean logic, and in python all non-empty strings
     ##  are True (noidea why), so this if statement can never fail!
 
         if (s[-37:-34] == 'tag') or (s[-37:-34] == 'cta'):  #takes last 37 bases, checks first 3 for stops
@@ -79,5 +79,5 @@ def primers(s):
 
 
 
-#ALso cool would be to get it run batches of sequences, and, most helpfully, remove the whitespace from sequences copied and pasted from the registry, because that’s a hassle
+#ALso cool would be to get it run batches of sequences, and, most helpfully, remove the whitespace from sequences copied and pasted from the registry, because that's a hassle
 # -> for the latter, ApE can do it, but yeah that would be cool
