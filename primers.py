@@ -1,6 +1,4 @@
 
-# How to use: copy and paste these two bits of text into a program called IDLE (search for it on the uni system)
-# Each needs to be in front of arrows (>>>) which tell you where IDLE starts
 # then type "primer('sequence goes here')". Press enter. (You must include the apostrophes or it won't work. The sequence text should turn green)
 # currently it doesn't put DR and UR on the same line as their prefixes and suffixes. Not sure why
 # To confirm the primers fit where they should, use ApE's or IDT's alignment tool
@@ -27,6 +25,7 @@ def rc(sequence, n, b):
             reverse = 'c' + reverse
         if len(reverse) == len(ss):
             print reverse
+
 def sprimers(s):
     c = len(s)
     h = c/ 2   # sets mid point
@@ -81,3 +80,31 @@ def primers(s):
 
 #ALso cool would be to get it run batches of sequences, and, most helpfully, remove the whitespace from sequences copied and pasted from the registry, because that's a hassle
 # -> for the latter, ApE can do it, but yeah that would be cool
+
+from Bio.Seq import Seq
+from Bio.Alphabet import generic_dna
+
+def primers2raw(raw_seq):
+    """primers2, accepting a raw sequence string"""
+    return primers2( Seq(raw_seq, generic_dna) )
+
+def primers2(seq):
+    """Takes a Seq object, returns the Clips primers"""
+    UF = "ctagag" + seq[0:37]   # Upstream Forward
+    UR = seq[0:34].reverse_complement() + "ctc"  # Upstream Reverse
+    
+    
+    
+    
+# an experiment into functional programming
+def UF(seq):
+    return seq[0:37] + "ctagag"
+
+def UR(seq):
+    return rc(UF(seq)[0:34], 0, None) + "ctc"
+
+def DF(seq):
+    t = UR(seq)[-37:]
+    while(t[0:3] not in ["tag", "cta"]):
+        
+    

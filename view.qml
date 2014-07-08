@@ -1,12 +1,27 @@
-import QtQuick 1.0
+import QtQuick 1.1
+import QtDesktop 0.1
+
+Window {
+    id: window
+    width: 640
+    height: 480
+    visible: true
     
-Rectangle {
-    width: 200
-    height: 200
-    color: "red"
+    MenuBar {
+        Menu {
+            text: "File"
+            MenuItem {
+                text: "Quit"
+                shortcut: "Ctrl+Q"
+                onTriggered: Qt.quit()
+            }
+        }
+    }
     
-    Text {
-        text: "Hello World"
-        anchors.centerIn: parent
+
+    Button {
+        text: "Quit"
+        onClicked: Qt.quit()
     }
 }
+
