@@ -90,8 +90,37 @@ def primers2raw(raw_seq):
 
 def primers2(seq):
     """Takes a Seq object, returns the Clips primers"""
-    UF = "ctagag" + seq[0:37]   # Upstream Forward
-    UR = seq[0:34].reverse_complement() + "ctc"  # Upstream Reverse
+    if len(seq) >= 80:
+        # Upstream Forward
+        UF = "CTAGAG" + seq[0:37]
+        
+        # Upstream Reverse
+        UR = seq[0:34].reverse_complement() + "CTC"
+        
+        # Downstream Forward
+        DF = seq[-37:]
+        while DF[:3] in ["TAG", "CTA"]:
+            DF = DF[1:]
+        DF = DF + 'TA'
+        
+        # Downstream Reverse
+        DR = "TAGTA" + seq[-(len(DF)-2-3):].reverse_complement()
+        
+        return { 'UF': UF, 'UR': UR, 'DF': DF, 'DR': DR }
+    
+    else: # for short sequences (<80 bases)
+        midpoint = len(seq)/2
+        a = midpoint - 2
+        otte = midpoint + 3
+        
+        UF = "CTAGAG" + seq[:a]
+        DF = seq[a:] + "TA"
+        UR = seq[:otte].reverse_complement() + "CTC"
+        DR = "TAGTA" + seq[otte:].reverse_complement()
+        
+        return { 'UF': UF, 'UR': UR, 'DF': DF, 'DR': DR }
+    
+        
     
     
     
@@ -102,9 +131,3 @@ def UF(seq):
 
 def UR(seq):
     return rc(UF(seq)[0:34], 0, None) + "ctc"
-
-def DF(seq):
-    t = UR(seq)[-37:]
-    while(t[0:3] not in ["tag", "cta"]):
-        
-    
